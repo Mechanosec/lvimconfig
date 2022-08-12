@@ -15,7 +15,7 @@ lvim.builtin.dap = {
 -- gitsigns
 lvim.builtin.gitsigns.opts.current_line_blame = true;
 lvim.builtin.gitsigns.opts.current_line_blame_opts = {
-  delay = 500
+  delay = 300
 }
 -- treesitter
 lvim.builtin.treesitter.ensure_installed = {
@@ -56,7 +56,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.which_key.mappings["b"] = {
   name = "+Dap",
   b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Setting breakpoints" },
-  c = { "<cmd>lua require'dap'.continue()<cr>", "Launching debug" },
+  l = { "<cmd>lua require'dap'.continue()<cr>", "Launching debug" },
   o = { "<cmd>lua require'dap'.step_over()", "Step over" },
   i = { "<cmd>lua require'dap'.step_into()", "Step into" }
 }
