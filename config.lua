@@ -10,7 +10,8 @@ lvim.builtin.terminal.active = true
 -- PLUGINS CONFIG
 -- dap
 lvim.builtin.dap = {
-  active = true,
+  active = false,
+  -- on_config_done = {}
 }
 -- gitsigns
 lvim.builtin.gitsigns.opts.current_line_blame = true;
@@ -53,6 +54,11 @@ lvim.builtin.nvimtree.setup.renderer.icons.glyphs.git = {
 -- MAPPINGS
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+vim.api.nvim_set_keymap("i", "<C-j>", "<Down>", { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true })
+
 lvim.builtin.which_key.mappings["b"] = {
   name = "+Dap",
   b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Setting breakpoints" },
@@ -69,13 +75,13 @@ lvim.builtin.which_key.mappings["T"] = {
   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 }
-lvim.builtin.which_key.mappings["d"] = {
-  name = "+Diffview",
-  a = { "<cmd>DiffviewFileHistory<cr>", "All" },
-  f = { "<cmd>DiffviewFileHistory %<cr>", "Current file" },
-  o = { "<cmd>DiffviewOpen<cr>", "Open modified files" },
-  c = { "<cmd>DiffviewClose<cr>", "Close modified files" }
-}
+-- lvim.builtin.which_key.mappings["d"] = {
+--   name = "+Diffview",
+--   a = { "<cmd>DiffviewFileHistory<cr>", "All" },
+--   f = { "<cmd>DiffviewFileHistory %<cr>", "Current file" },
+--   o = { "<cmd>DiffviewOpen<cr>", "Open modified files" },
+--   c = { "<cmd>DiffviewClose<cr>", "Close modified files" }
+-- }
 lvim.builtin.which_key.mappings["s"] = {
   name = "+Spectre",
   c = { "<cmd>lua require('spectre').close()<cr>", "Close" },
@@ -134,6 +140,9 @@ lvim.plugins = {
       })
     end,
   },
+  -- {
+  --   "nvim-telescope/telescope-dap.nvim"
+  -- }
 }
 
 -- FORMATTER
