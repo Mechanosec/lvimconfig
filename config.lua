@@ -9,9 +9,31 @@ lvim.builtin.terminal.active = true
 
 -- PLUGINS CONFIG
 -- dap
-lvim.builtin.dap = {
-  active = false,
-  -- on_config_done = {}
+lvim.builtin.dap.active = true
+local dap = require('dap')
+dap.adapters.node2 = {
+  type = 'executable',
+  command = 'node',
+  args = { os.getenv('HOME') .. '/.config/lvim/debuggers/vscode-node-debug2/out/src/nodeDebug.js' },
+}
+dap.configurations.javascript = {
+  {
+    name = 'Launch',
+    type = 'node2',
+    request = 'launch',
+    program = '${file}',
+    cwd = vim.fn.getcwd(),
+    sourceMaps = true,
+    protocol = 'inspector',
+    console = 'integratedTerminal',
+  },
+  {
+    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+    name = 'Attach to process',
+    type = 'node2',
+    request = 'attach',
+    processId = require 'dap.utils'.pick_process,
+  },
 }
 -- gitsigns
 lvim.builtin.gitsigns.opts.current_line_blame = true;
@@ -54,18 +76,16 @@ lvim.builtin.nvimtree.setup.renderer.icons.glyphs.git = {
 -- MAPPINGS
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<S-h>"] = ""
+lvim.keys.normal_mode["<S-l>"] = ""
+lvim.keys.normal_mode["<Tab>"] = "<cmd>BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["<S-Tab>"] = "<cmd>BufferLineCyclePrev<cr>"
+
 vim.api.nvim_set_keymap("i", "<C-j>", "<Down>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true })
 
-lvim.builtin.which_key.mappings["b"] = {
-  name = "+Dap",
-  b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Setting breakpoints" },
-  l = { "<cmd>lua require'dap'.continue()<cr>", "Launching debug" },
-  o = { "<cmd>lua require'dap'.step_over()", "Step over" },
-  i = { "<cmd>lua require'dap'.step_into()", "Step into" }
-}
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -75,13 +95,13 @@ lvim.builtin.which_key.mappings["T"] = {
   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 }
--- lvim.builtin.which_key.mappings["d"] = {
---   name = "+Diffview",
---   a = { "<cmd>DiffviewFileHistory<cr>", "All" },
---   f = { "<cmd>DiffviewFileHistory %<cr>", "Current file" },
---   o = { "<cmd>DiffviewOpen<cr>", "Open modified files" },
---   c = { "<cmd>DiffviewClose<cr>", "Close modified files" }
--- }
+lvim.builtin.which_key.mappings["D"] = {
+  name = "+Diffview",
+  a = { "<cmd>DiffviewFileHistory<cr>", "All" },
+  f = { "<cmd>DiffviewFileHistory %<cr>", "Current file" },
+  o = { "<cmd>DiffviewOpen<cr>", "Open modified files" },
+  c = { "<cmd>DiffviewClose<cr>", "Close modified files" }
+}
 lvim.builtin.which_key.mappings["s"] = {
   name = "+Spectre",
   c = { "<cmd>lua require('spectre').close()<cr>", "Close" },
