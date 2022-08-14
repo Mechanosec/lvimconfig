@@ -23,9 +23,9 @@ dap.configurations.javascript = {
     request = 'launch',
     program = '${file}',
     cwd = vim.fn.getcwd(),
-    sourceMaps = true,
+    -- sourceMaps = true,
     protocol = 'inspector',
-    console = 'integratedTerminal',
+    -- console = 'integratedTerminal',
   },
   {
     -- For this to work you need to make sure the node process is started with the `--inspect` flag.
@@ -35,6 +35,16 @@ dap.configurations.javascript = {
     processId = require 'dap.utils'.pick_process,
   },
 }
+local dapui = require("dapui")
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
 -- gitsigns
 lvim.builtin.gitsigns.opts.current_line_blame = true;
 lvim.builtin.gitsigns.opts.current_line_blame_opts = {
@@ -86,6 +96,10 @@ vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true })
 
+lvim.builtin.which_key.mappings["D"] = {
+  name = "+Dap extensions",
+  v = { "<cmd>DapVirtualTextToggle<cr>", "Toggle virtual text" }
+}
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -95,7 +109,7 @@ lvim.builtin.which_key.mappings["T"] = {
   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 }
-lvim.builtin.which_key.mappings["D"] = {
+lvim.builtin.which_key.mappings["v"] = {
   name = "+Diffview",
   a = { "<cmd>DiffviewFileHistory<cr>", "All" },
   f = { "<cmd>DiffviewFileHistory %<cr>", "Current file" },
@@ -160,9 +174,18 @@ lvim.plugins = {
       })
     end,
   },
-  -- {
-  --   "nvim-telescope/telescope-dap.nvim"
-  -- }
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    config = function()
+      require("nvim-dap-virtual-text").setup()
+    end
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require("dapui").setup()
+    end
+  }
 }
 
 -- FORMATTER
