@@ -45,7 +45,7 @@ lvim.plugins = {
   {
     "rcarriga/nvim-dap-ui",
     config = function()
-      require("dapui").setup()
+      require("user.plugins.configs.dapui")
     end
   },
   {
@@ -64,6 +64,5 @@ lvim.plugins = {
 -- configs
 require("user.plugins.configs.dap")
 require("user.plugins.configs.gitsings")
-require("user.plugins.configs.treesitter")
 require("user.plugins.configs.treesitter")
 require("user.plugins.configs.formatter")
