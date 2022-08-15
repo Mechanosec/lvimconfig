@@ -12,7 +12,7 @@ vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true })
 
 lvim.builtin.which_key.mappings["r"] = {
   function()
-    vim.cmd("e")
+    vim.cmd("e!")
     vim.cmd("NvimTreeRefresh")
   end,
   "Refresh Buffer"
