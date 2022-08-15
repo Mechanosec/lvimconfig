@@ -10,6 +10,13 @@ vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true })
 
+lvim.builtin.which_key.mappings["r"] = {
+  function()
+    vim.cmd("e!")
+    vim.cmd("NvimTreeRefresh")
+  end,
+  "Refresh Buffer"
+}
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -49,7 +56,7 @@ lvim.builtin.which_key.mappings["."] = {
 lvim.builtin.which_key.mappings["D"] = {
   name = "+Dap extensions",
   v = { "<cmd>DapVirtualTextToggle<cr>", "Toggle virtual text" },
-  u = { "<cmd>lua require('dapui').toggle()<cr>", "Toogle UI" },
+  u = { "<cmd>lua require('dapui').toggle({reset=true})<cr>", "Toogle UI" },
   -- o = { "<cmd>lua require('dapui').open()", "Open UI" },
   -- c = { "<cmd>lua require('dapui')", "Close UI" },
 }
