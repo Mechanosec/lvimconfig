@@ -62,6 +62,7 @@ lvim.plugins = {
   -- }
 }
 -- configs
+lvim.builtin.alpha.active = false
 require("user.plugins.configs.dap")
 require("user.plugins.configs.gitsings")
 require("user.plugins.configs.treesitter")
