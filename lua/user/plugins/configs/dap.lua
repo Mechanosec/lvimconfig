@@ -1,6 +1,7 @@
 lvim.builtin.dap.active = true
 local status, dap = pcall(require, "dap")
 if (not status) then return end
+
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
