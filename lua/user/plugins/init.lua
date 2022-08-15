@@ -65,4 +65,5 @@ lvim.plugins = {
 require("user.plugins.configs.dap")
 require("user.plugins.configs.gitsings")
 require("user.plugins.configs.treesitter")
+require("user.plugins.configs.nvimtree")
 require("user.plugins.configs.formatter")
