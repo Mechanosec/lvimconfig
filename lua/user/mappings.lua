@@ -10,6 +10,13 @@ vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true })
 
+lvim.builtin.which_key.mappings["r"] = {
+  function()
+    vim.cmd("e")
+    vim.cmd("NvimTreeRefresh")
+  end,
+  "Refresh Buffer"
+}
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
