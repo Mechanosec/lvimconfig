@@ -28,7 +28,7 @@ dapui.setup({
         { id = "scopes", size = 0.7 },
         { id = "breakpoints", size = 0.3 },
       },
-      size = 40, -- 40 columns
+      size = 50, -- 40 columns
       position = "left",
     },
   },

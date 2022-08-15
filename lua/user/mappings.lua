@@ -49,7 +49,7 @@ lvim.builtin.which_key.mappings["."] = {
 lvim.builtin.which_key.mappings["D"] = {
   name = "+Dap extensions",
   v = { "<cmd>DapVirtualTextToggle<cr>", "Toggle virtual text" },
-  u = { "<cmd>lua require('dapui').toggle()<cr>", "Toogle UI" },
+  u = { "<cmd>lua require('dapui').toggle({reset=true})<cr>", "Toogle UI" },
   -- o = { "<cmd>lua require('dapui').open()", "Open UI" },
   -- c = { "<cmd>lua require('dapui')", "Close UI" },
 }
