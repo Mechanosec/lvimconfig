@@ -20,6 +20,7 @@ lvim.builtin.which_key.mappings["r"] = {
 lvim.builtin.which_key.mappings["o"] = {
   "<cmd>SymbolsOutline<cr>", "+SymbolsOutline"
 }
+lvim.builtin.which_key.mappings["g"]["l"] = { "<cmd>lua require('git.blame').blame()<cr>", "Blame" }
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },

@@ -66,6 +66,12 @@ lvim.plugins = {
     run = "cd app && npm install",
     ft = "markdown",
   },
+  {
+    "dinhhuy258/git.nvim",
+    config = function()
+      require('git').setup({})
+    end
+  },
 }
 -- configs
 lvim.builtin.alpha.active = false
