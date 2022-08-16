@@ -17,6 +17,9 @@ lvim.builtin.which_key.mappings["r"] = {
   end,
   "Refresh Buffer"
 }
+lvim.builtin.which_key.mappings["o"] = {
+  "<cmd>SymbolsOutline<cr>", "+SymbolsOutline"
+}
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },

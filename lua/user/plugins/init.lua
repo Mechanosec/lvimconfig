@@ -54,12 +54,18 @@ lvim.plugins = {
       require("git-conflict").setup()
     end
   },
-  -- {
-  --   "aserowy/tmux.nvim",
-  --   config = function()
-  --     require("tmux").setup()
-  --   end
-  -- }
+  {
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
+    config = function()
+      require("symbols-outline").setup()
+    end
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
+  },
 }
 -- configs
 lvim.builtin.alpha.active = false
