@@ -21,15 +21,15 @@ lvim.builtin.which_key.mappings["o"] = {
   "<cmd>SymbolsOutline<cr>", "+SymbolsOutline"
 }
 lvim.builtin.which_key.mappings["g"]["l"] = { "<cmd>lua require('git.blame').blame()<cr>", "Blame" }
-lvim.builtin.which_key.mappings["T"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
-}
+-- lvim.builtin.which_key.mappings["T"] = {
+--   name = "+Trouble",
+--   r = { "<cmd>Trouble lsp_references<cr>", "References" },
+--   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+--   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+--   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+--   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+--   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+-- }
 lvim.builtin.which_key.mappings["v"] = {
   name = "+Diffview",
   a = { "<cmd>DiffviewFileHistory<cr>", "All" },
