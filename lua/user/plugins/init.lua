@@ -1,10 +1,10 @@
 -- init
 lvim.plugins = {
   { "folke/tokyonight.nvim" },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
+  -- {
+  --   "folke/trouble.nvim",
+  --   cmd = "TroubleToggle",
+  -- },
   {
     "sindrets/diffview.nvim",
     event = "BufRead",
