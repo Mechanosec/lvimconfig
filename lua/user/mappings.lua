@@ -20,6 +20,7 @@ lvim.builtin.which_key.mappings["r"] = {
 lvim.builtin.which_key.mappings["o"] = {
   "<cmd>SymbolsOutline<cr>", "+SymbolsOutline"
 }
+-- GIt
 lvim.builtin.which_key.mappings["g"]["l"] = { "<cmd>lua require('git.blame').blame()<cr>", "Blame" }
 -- lvim.builtin.which_key.mappings["T"] = {
 --   name = "+Trouble",
@@ -57,6 +58,7 @@ lvim.builtin.which_key.mappings["."] = {
   v = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical" },
   h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal" }
 }
+-- Dap
 lvim.builtin.which_key.mappings["D"] = {
   name = "+Dap extensions",
   v = { "<cmd>DapVirtualTextToggle<cr>", "Toggle virtual text" },
