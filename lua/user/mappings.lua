@@ -12,10 +12,23 @@ vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true })
 
 lvim.builtin.which_key.mappings["r"] = {
   function()
-    vim.cmd("e!")
-    vim.cmd("NvimTreeRefresh")
+    vim.cmd("e!|NvimTreeRefresh")
+    -- vim.cmd("NvimTreeRefresh")
   end,
   "Refresh Buffer"
+}
+lvim.builtin.which_key.mappings["c"] = {
+  function()
+    vim.cmd("bn")
+    local bufDel = function()
+      vim.cmd("bd #")
+    end
+    if (not pcall(bufDel)) then
+      print("asda")
+      vim.cmd("bd")
+    end
+  end,
+  "Closed Buffer"
 }
 lvim.builtin.which_key.mappings["o"] = {
   "<cmd>SymbolsOutline<cr>", "+SymbolsOutline"
