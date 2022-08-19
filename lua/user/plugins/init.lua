@@ -1,10 +1,12 @@
 -- init
 lvim.plugins = {
+  -- Colorshemes
   { "folke/tokyonight.nvim" },
-  -- {
-  --   "folke/trouble.nvim",
-  --   cmd = "TroubleToggle",
-  -- },
+  { "EdenEast/nightfox.nvim" },
+  -- Other
+  {
+    "mg979/vim-visual-multi"
+  },
   {
     "sindrets/diffview.nvim",
     event = "BufRead",
